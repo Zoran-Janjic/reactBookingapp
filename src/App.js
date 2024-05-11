@@ -9,13 +9,21 @@ import { Box, Stack } from "@mui/material";
 const user = { name: null, email: "example@example.com" };
 function App() {
   return (
-    <Box sx={{ backgroundColor: "lavender", margin: 0, padding: 0 }}>
+    <Box
+      height={"100vh"}
+      sx={{ backgroundColor: "lavender", margin: 0, padding: 0 }}
+    >
       <nav>
         <NavbarComp />
       </nav>
-      <main>
+
+      <Stack
+        height={"100vh"}
+        sx={{ backgroundColor: "yellow", padding: 1, minHeight: "100%" }}
+      >
         <main>{user.name == null ? <LandingPage /> : <DashboardPage />}</main>
-      </main>
+      </Stack>
+
       <footer>
         <FooterComp />
       </footer>
