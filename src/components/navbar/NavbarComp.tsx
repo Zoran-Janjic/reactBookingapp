@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import TranslateIcon from "@mui/icons-material/Translate";
 import theme from "../theme/theme";
+import Constants from "../utils/Constants";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -143,7 +144,7 @@ export default function NavbarComp() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAACUCAMAAAAu5KLjAAAAP1BMVEXZ3OFveH/c3+RsdXzf4udpcnnQ1Nlye4J/h425vsNkbnWgpqyLkpjDyM17g4mqr7WTmZ+zuL7JztOZn6WFjJL7SIMLAAAD9ElEQVR4nO2c23KDIBBAdbl4BdT4/99ayKVNkxhZAVdnOA/tTJ/OLO4CC7QoMplMJpPJZDKZTCaTyWQyqwC/A9QmywCHyXRD3w+dmeCYpgCymUXbCmZxv+dGwuFMuexqwconmKg7yam9/gGF0eyf5FWUaVMcKKCgdPvqeKPV6jCeYKq3SP5GtDJH8byIJUmHuFD73Ri+WlrPgdrQAmuWzpN83OH7iD/GndgTxsXkeYaNpJ4wLef4P81qovQE7WVpPTWhJjcLVf2d1pDNm3bIfS3LknDYfbL8AV2VxwTThZPGkneIYNpwdjRfJ3hm+QNG8nFC453mN9qGwhMu2GiSTJmyxmrWcn9LUKg8d1QEK3kYsZZlSbAAAVw5coiO4OPETEF3TYqJqEdmkM2hnkBzxmvOWTNrZs1fTpLp622EVyjaH2eZhQxe0+xveZalx0kWcluWxRTLd2xFIqlHBcfmkCDpz8CE1aRpz3BkDlU07QTkqNOMeXGWHtJZOnJn6W/yzr9bTNSPuwJ+JwTujID0iED5nmTQnrCCX1ES1OerXsWTrGT+Aeb9vP9lxBl1LK+eDft+UM1IusRv8GIoF0VFORTkI34H1PA5ooINx7lE4a6kTF0l3N2evw+SCVF105GupBS3q1LjMNe6shNoVel6HsZjXplyUnJSqmmUmmRxSMcHcIfaI5PJJAOeoZb5jC2TYKtm0zTjaH/YyglHq5zAeaHMMGv9u4ertJ4Ho4qj3DK2oyubrhbutu7rOtP+se4aWZB/AcDleNFCLN/fFEJfRkkaUyvZaba+eme6oxOFQvWtZ99DtL0iWdMBqP777uJFlPVq/28Upr7EdovLfucGDUiDieRfRM2e7Xeu5g2SV9FZ7bWBg2J1a76M3bTvk0og+42hvAe032PguaqDLK1nnX7gYdw+4A9Y8hvRMC7PiwhPkdYTTATJq2jK7heiib1GwiY3+F/M9vBMFc8tJ+jfSPN9QhOe48+wJH1PkL6nFt6eVYI6L/H3jlY95/jXY/H3INeJfkDImwSW1rOJWpZAppB0xP08Uwy5I+qwg0oj6Yh5hOD7egkP09Ek+RhxknylHSNlEch0wXThjJRFnqe8W4l1Ooy+ZYYj0lMNu2BPaWnDGWWp5P1IcStRHjeCSpjmN9oItZMPiYNpwzmE1ySJvk2KpwpOotg7i8+EJxH2xdoWWPACJHHRvGuGlk5QO1haz8BcR75M3Uroi1Yef6P2CTaHacIeko6gQQeZfAq60Qat5jj2ne9mzaAt5k4ZFJpDkH5Cv8HC/kMJ/onVRs2whxB7zEFXzTpA0m7W9rEsy5CNG0z7aQYcZ254urSVkDvSWROp+QPBZTJPykUrPQAAAABJRU5ErkJggg=="
+                  src={Constants.Images.defaultUserAvatarUrl}
                 />
               </IconButton>
             </Tooltip>
