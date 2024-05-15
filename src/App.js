@@ -24,6 +24,7 @@ function App() {
         sx={{ backgroundColor: "yellow", padding: 1, minHeight: "100%" }}
       >
         <Routes>
+          {/* Add proer routing */}
           {/* Set the LandingPage as the index */}
           <Route index element={<LandingPage />} />
 
