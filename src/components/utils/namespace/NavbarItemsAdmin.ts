@@ -1,13 +1,51 @@
-namespace NavbarNavigationItemsAdmin {
+/**
+ * @namespace NavbarNavigationItemsAdmin
+ * @description This namespace contains the enum and data for the admin navigation items.
+ */
+namespace NavbarItemsAdmin {
+  /**
+   * @enum Items
+   * @description Enum representing the different admin navigation items.
+   * @readonly
+   * @enum {string}
+   */
   export enum Items {
+    /**
+     * @description Represents the admin dashboard navigation item.
+     */
     Home = "admin-dashboard",
+
+    /**
+     * @description Represents the add new user navigation item.
+     */
     AddNewUser = "add-user",
+
+    /**
+     * @description Represents the search student navigation item.
+     */
     SearchStudent = "search-user",
+
+    /**
+     * @description Represents the admin settings navigation item.
+     */
     AdminSettings = "settings",
+
+    /**
+     * @description Represents the all bookings navigation item.
+     */
     AllBookings = "all-bookings",
   }
 
-  export const Data = {
+  /**
+   * @constant Data
+   * @description Object containing data for each admin navigation item.
+   * @readonly
+   * @type {Record<Items, { id: string; title: string; route: string; }>}
+   */
+  export const Data: Record<
+    Items,
+    { id: string; title: string; route: string }
+  > = {
     [Items.Home]: {
       id: "admin-dashboard",
       title: "Dashboard",
@@ -35,3 +73,5 @@ namespace NavbarNavigationItemsAdmin {
     },
   };
 }
+
+export { NavbarItemsAdmin };

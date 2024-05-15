@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react"
-  }
+    "jsx": "react",
+    "module": "CommonJS", // Specify module type
+    "resolveJsonModule": true, // Allow importing JSON files
+    "baseUrl": ".", // Base directory to resolve non-relative module names
+    "paths": {
+      "*": ["src/*"] // Map module names to locations relative to the baseUrl
+    }
+  },
+  "include": ["src/**/*"], // Include files for compilation
+  "exclude": ["node_modules"] // Exclude node_modules directory
 }

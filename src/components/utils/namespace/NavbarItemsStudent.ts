@@ -1,4 +1,4 @@
-namespace NavbarItemsStudentNamespace {
+namespace NavbarItemsStudent {
   export enum Items {
     Home = "student-dashboard",
     StudentBookClass = "book-class",
@@ -29,3 +29,5 @@ namespace NavbarItemsStudentNamespace {
     },
   };
 }
+
+export { NavbarItemsStudent };

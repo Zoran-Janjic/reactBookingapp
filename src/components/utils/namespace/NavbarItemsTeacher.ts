@@ -29,3 +29,5 @@ namespace NavbarItemsTeacher {
     },
   };
 }
+
+export { NavbarItemsTeacher };

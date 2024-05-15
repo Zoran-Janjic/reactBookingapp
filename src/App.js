@@ -5,6 +5,8 @@ import FooterComp from "./components/footer/FooterComp.tsx";
 import LandingPage from "./pages/landing/LandingPage.tsx";
 import DashboardPage from "./pages/dashboard/DashboardPage.tsx";
 import { Box, Stack } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/auth/LoginPage.tsx";
 
 const user = { name: null, email: "example@example.com" };
 function App() {
@@ -21,7 +23,12 @@ function App() {
         height={"100vh"}
         sx={{ backgroundColor: "yellow", padding: 1, minHeight: "100%" }}
       >
-        <main>{user.name == null ? <LandingPage /> : <DashboardPage />}</main>
+        <Routes>
+          {/* Set the LandingPage as the index */}
+          <Route index element={<LandingPage />} />
+
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       </Stack>
 
       <footer>

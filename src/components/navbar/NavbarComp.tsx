@@ -1,5 +1,4 @@
 import React from "react";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,14 +8,23 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import TranslateIcon from "@mui/icons-material/Translate";
 import theme from "../theme/theme";
 import Constants from "../utils/Constants";
-const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+import { NavbarItemsTeacher } from "../utils/namespace/NavbarItemsTeacher";
+import { NavbarItemsStudent } from "../utils/namespace/NavbarItemsStudent";
+import { NavbarItemsAdmin } from "../utils/namespace/NavbarItemsAdmin";
+
+const testUser = {
+  name: "John",
+  phone: 1234567890,
+  theme: "dark",
+  role: 1,
+};
 
 export default function NavbarComp() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -40,6 +48,51 @@ export default function NavbarComp() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const renderNavbarItems = (handleCloseNavMenu: () => void) => {
+    if (testUser.role === 1) {
+      // Admin
+      return Object.keys(NavbarItemsAdmin.Items).map((key) => {
+        const itemKey =
+          NavbarItemsAdmin.Items[key as keyof typeof NavbarItemsAdmin.Items];
+        const itemData = NavbarItemsAdmin.Data[itemKey];
+        return (
+          <MenuItem key={`admin_${itemData.id}`} onClick={handleCloseNavMenu}>
+            <Typography textAlign="center">{itemData.title}</Typography>
+          </MenuItem>
+        );
+      });
+    } else if (testUser.role === 2) {
+      // Teacher
+      return Object.keys(NavbarItemsTeacher.Items).map((key) => {
+        const itemKey =
+          NavbarItemsTeacher.Items[
+            key as keyof typeof NavbarItemsTeacher.Items
+          ];
+        const itemData = NavbarItemsTeacher.Data[itemKey];
+        return (
+          <MenuItem key={`teacher_${itemData.id}`} onClick={handleCloseNavMenu}>
+            <Typography textAlign="center">{itemData.title}</Typography>
+          </MenuItem>
+        );
+      });
+    } else if (testUser.role === 3) {
+      // Student
+      return Object.keys(NavbarItemsStudent.Items).map((key) => {
+        const itemKey =
+          NavbarItemsStudent.Items[
+            key as keyof typeof NavbarItemsStudent.Items
+          ];
+        const itemData = NavbarItemsStudent.Data[itemKey];
+        return (
+          <MenuItem key={`student_${itemData.id}`} onClick={handleCloseNavMenu}>
+            <Typography textAlign="center">{itemData.title}</Typography>
+          </MenuItem>
+        );
+      });
+    }
+    return null; // Add a return statement to handle cases where role is not 1, 2, or 3
   };
 
   return (
@@ -100,11 +153,7 @@ export default function NavbarComp() {
               }}
             >
               {/* Navbar links */}
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {renderNavbarItems(handleCloseNavMenu)}
             </Menu>
           </Box>
           {/* Small screen */}
@@ -128,15 +177,7 @@ export default function NavbarComp() {
             Language School
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            {renderNavbarItems(handleCloseNavMenu)}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
