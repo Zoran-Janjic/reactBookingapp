@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
-import NavbarComp from "./components/navbar/NavbarComp.tsx";
 import FooterComp from "./components/footer/FooterComp.tsx";
 import LandingPage from "./pages/landing/LandingPage.tsx";
 import DashboardPage from "./pages/dashboard/DashboardPage.tsx";
 import { Box, Stack } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/auth/LoginPage.tsx";
+import AuthGuard from "./components/auth/AuthGuard.tsx";
 
 const user = { name: null, email: "example@example.com" };
 function App() {
@@ -15,20 +14,22 @@ function App() {
       height={"100vh"}
       sx={{ backgroundColor: "lavender", margin: 0, padding: 0 }}
     >
-      <nav>
-        <NavbarComp />
-      </nav>
-
       <Stack
         height={"100vh"}
         sx={{ backgroundColor: "yellow", padding: 1, minHeight: "100%" }}
       >
         <Routes>
-          {/* Add proer routing */}
           {/* Set the LandingPage as the index */}
           <Route index element={<LandingPage />} />
-
-          <Route path="/login" element={<LoginPage />} />
+          {/* Protected routes with auth guard */}
+          <Route
+            path="/dashboard"
+            element={
+              <AuthGuard>
+                <DashboardPage />
+              </AuthGuard>
+            }
+          />
         </Routes>
       </Stack>
 

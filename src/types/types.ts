@@ -15,3 +15,7 @@ export type ToggleColorModeProps = {
   mode: PaletteMode;
   toggleColorMode: () => void;
 };
+
+export type ChildrenAsProps = {
+  children: React.ReactNode;
+};
