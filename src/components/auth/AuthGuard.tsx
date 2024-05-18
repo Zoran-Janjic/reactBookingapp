@@ -19,9 +19,6 @@ const AuthGuard = ({ children }: ChildrenAsProps) => (
       </nav>
       {children}
     </SignedIn>
-    <SignedOut>
-      <RedirectToSignIn />
-    </SignedOut>
   </>
 );
 
